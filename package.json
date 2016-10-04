@@ -1,7 +1,7 @@
 {
   "name": "dependency-injection-es6",
   "main": "index",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "author": "Armen Harutyunyan <mench.harutyunyan@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -25,9 +25,6 @@
   "description": "dependency-injection-es6 is a dependency injection library for Node.js and Javascript environments where ES6 is supported.",
   "directories": {
     "test": "test"
-  },
-  "dependencies": {
-    "dependency-injection-es6": "^0.0.1"
   },
   "repository": {
     "type": "git",
