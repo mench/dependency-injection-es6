@@ -4,6 +4,7 @@ node_modules
 *.iml
 dest
 test
+out
 .DS_Store
 *.log
 *.pid

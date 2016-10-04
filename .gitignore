@@ -3,6 +3,7 @@ node_modules
 *.idea/*
 *.iml
 dest
+out
 .DS_Store
 *.log
 *.pid
