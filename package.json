@@ -1,0 +1,25 @@
+{
+  "name": "dependency-injection-es6",
+  "main": "index",
+  "version": "0.0.1",
+  "author": "Armen Harutyunyan <mench.harutyunyan@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test" :"node out/index",
+    "build": "babel -D --stage 0 --out-dir out ./src",
+    "watch": "babel -D --watch --stage 0 --out-dir lib ./src",
+    "watch-test": "babel -D --watch --stage 0 --out-dir out ./test"
+  },
+  "keywords": [
+    "dependency injection",
+    "di",
+    "babel",
+    "es6",
+    "ecmascript 6"
+  ],
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.23",
+    "babel-loader": "^5.3.2"
+  }
+}
