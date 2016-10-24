@@ -140,3 +140,21 @@ var service = container.getInstanceOf(Service);
 console.info(service);
 
 ```
+
+#### Inject with constructor.
+
+```javascript
+import {container,inject} from 'dependency-injection-es6';
+import {MyDependency1} from './my-dependency1';
+import {MyDependency2} from './my-dependency2';
+
+@inject(MyDependency1,MyDependency2)
+class MyApplication {
+    constructor(myDependency1,myDependency2) {
+        this.myDependency1 = myDependency1;
+        this.myDependency2 = myDependency2;
+    }
+}
+
+```
+Dependencies of a class are injected through the constructor.

@@ -1,7 +1,7 @@
 
 const bindings = new Map();
 const singletons = new Map();
-
+const DEPENDENCIES = Symbol('DEPENDENCIES');
 
 export default class Container {
 
@@ -24,9 +24,18 @@ export default class Container {
         if(singletons.has(clazz)) {
             return this.resolveSingleton(clazz);
         }
-        return new clazz();
+        return this.resolveInstance(clazz);
 
     }
+
+    static resolveInstance(clazz){
+        if(typeof clazz !="function") throw new Error(`${clazz} must be class not a ${typeof clazz}`);
+        let classes = clazz[DEPENDENCIES] || [];
+        let dependencies = classes.map(this.resolve.bind(this));
+        return new clazz(...dependencies);
+    }
+
+
 
     static registerAsSingleton(clazz) {
         if(!singletons.has(clazz)) {
@@ -36,9 +45,13 @@ export default class Container {
 
     static resolveSingleton(clazz) {
         if(singletons.get(clazz) === null) {
-            singletons.set(clazz, new clazz());
+            singletons.set(clazz, this.resolveInstance(clazz));
         }
         return singletons.get(clazz);
+    }
+
+    static registerDependencies(clazz, ...dependencies) {
+        clazz[DEPENDENCIES] = dependencies
     }
 
 }

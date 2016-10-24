@@ -51,6 +51,23 @@ class ProdService extends Service{
 
 }
 
+
+@inject(Config)
+class MyDependency1 {
+    constructor(config){
+        console.info("constructor MyDependency1",config)
+    }
+
+}
+
+@inject(SimpleClass)
+class MyDependency2 {
+    constructor(simple){
+        console.info("constructor MyDependency2",simple)
+    }
+}
+
+@inject(MyDependency1,MyDependency2)
 class HasDependencies {
 
     @inject(Service)
@@ -59,9 +76,10 @@ class HasDependencies {
     @inject(Config)
     config:Service;
 
-    constructor(){
+    constructor(myDep1,myDep2){
         console.info('args',arguments)
         this.service.sendMessage();
+        console.info(myDep1,myDep2);
     }
 }
 

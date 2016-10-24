@@ -7,7 +7,7 @@ export function inject(Interface) {
                 return container.getInstanceOf(Interface);
             }
         }else{
-            throw new Error("inject can be only on member not on class")
+            container.registerDependencies(target,...arguments);
         }
 
     };
