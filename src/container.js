@@ -31,7 +31,7 @@ export default class Container {
     static resolveInstance(clazz){
         if(typeof clazz !="function") throw new Error(`${clazz} must be class not a ${typeof clazz}`);
         let classes = clazz[DEPENDENCIES] || [];
-        let dependencies = classes.map(this.resolve.bind(this));
+        let dependencies = classes.map(this.getInstanceOf.bind(this));
         return new clazz(...dependencies);
     }
 
