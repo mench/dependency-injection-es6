@@ -1,7 +1,7 @@
 {
   "name": "dependency-injection-es6",
   "main": "index",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Armen Harutyunyan <mench.harutyunyan@gmail.com>",
   "license": "MIT",
   "scripts": {
